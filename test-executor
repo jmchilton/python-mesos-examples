@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Ensure working directory is lwr project. 
+PROJECT_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+VIRTUALENV_HOME=$PROJECT_DIRECTORY/venv
+
+if [ -d $VIRTUALENV_HOME ]; 
+then
+    . $VIRTUALENV_HOME/bin/activate
+fi
+
+python $PROJECT_DIRECTORY/test_executor.py "$@"
